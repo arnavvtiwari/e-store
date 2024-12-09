@@ -7,7 +7,8 @@ const userModel = require('../models/user.model');
 
 router.get('/',(req,res)=>{
     const error = req.flash("error"); 
-    res.render('index', { error, loggedIn: false });
+    const success = req.flash("success")
+    res.render('index', {success ,error, loggedIn: false });
 })
 router.get('/cart/:productId', isLoggedin, async (req,res)=>{
     console.log(req.user)
